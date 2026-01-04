@@ -7,10 +7,10 @@
 
 class DatabaseSimulated {
 private:
-    // Simulated storage
-    std::map<std::string, std::string> users;  // username -> password
-    std::map<std::string, int> globalScores;   // username -> score
-    std::map<std::string, std::map<std::string, int>> gameScores; // game -> (username -> score)
+   
+    std::map<std::string, std::string> users;  
+    std::map<std::string, int> globalScores;   
+    std::map<std::string, std::map<std::string, int>> gameScores; 
     
 public:
     DatabaseSimulated();
@@ -19,14 +19,14 @@ public:
     void disconnect();
     bool ping();
     
-    // User operations
+   
     bool registerUser(const std::string& username, const std::string& password);
     bool loginUser(const std::string& username, const std::string& password);
     
-    // Score operations
+
     bool submitScore(const std::string& username, const std::string& game, int score);
     
-    // Leaderboard operations
+   
     std::string getGlobalLeaderboard(int limit = 10);
     std::string getUserRank(const std::string& username, const std::string& game = "global");
     std::string getTopPlayers(int days = 7, int limit = 10);
